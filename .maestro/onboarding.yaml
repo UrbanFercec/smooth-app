@@ -7,11 +7,26 @@ name: Onboarding, fresh install to home screen
     visible: "Continue"
     timeout: 60000
 - tapOn: "Continue"
+# Wait for each page before tapping Next: a tap during a page transition is lost.
+- extendedWaitUntil:
+    visible: ".* is a global non-profit powered by local communities."
+    timeout: 20000
 - tapOn: "Next"
+- extendedWaitUntil:
+    visible: "Choose foods that are good for you."
+    timeout: 20000
 - tapOn: "Next"
+- extendedWaitUntil:
+    visible: "Choose foods that are good for the planet."
+    timeout: 20000
 - tapOn: "Next"
+- extendedWaitUntil:
+    visible: "See the food data relevant to your preferences."
+    timeout: 20000
 - tapOn: "Next"
 - tapOn:
     text: "Later"
     optional: true
-- assertVisible: "Search for a product"
+- extendedWaitUntil:
+    visible: "Search for a product"
+    timeout: 20000
