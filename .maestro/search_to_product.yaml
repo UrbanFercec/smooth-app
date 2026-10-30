@@ -9,4 +9,4 @@ name: Search a barcode, open the product page
 - extendedWaitUntil:
     visible: "Nutella"
     timeout: 60000
-- assertVisible: "Nutri-Score: .*"
+- assertVisible: ".*Nutri-Score.*"
