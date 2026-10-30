@@ -3,6 +3,7 @@ name: Search a barcode, open the product page
 ---
 - runFlow: onboarding.yaml
 - tapOn: "Search for a product"
+- tapOn: "Search"
 - inputText: "3017620422003"
 - pressKey: Enter
 - extendedWaitUntil:
