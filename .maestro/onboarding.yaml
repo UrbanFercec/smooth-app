@@ -1,0 +1,17 @@
+appId: org.openfoodfacts.scanner
+name: Onboarding, fresh install to home screen
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Continue"
+    timeout: 60000
+- tapOn: "Continue"
+- tapOn: "Next"
+- tapOn: "Next"
+- tapOn: "Next"
+- tapOn: "Next"
+- tapOn:
+    text: "Later"
+    optional: true
+- assertVisible: "Search for a product"

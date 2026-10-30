@@ -1,0 +1,11 @@
+appId: org.openfoodfacts.scanner
+name: Search a barcode, open the product page
+---
+- runFlow: onboarding.yaml
+- tapOn: "Search for a product"
+- inputText: "3017620422003"
+- pressKey: Enter
+- extendedWaitUntil:
+    visible: "Nutella"
+    timeout: 30000
+- assertVisible: "Nutri-Score: .*"
