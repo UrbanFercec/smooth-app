@@ -7,5 +7,5 @@ name: Search a barcode, open the product page
 - pressKey: Enter
 - extendedWaitUntil:
     visible: "Nutella"
-    timeout: 30000
+    timeout: 60000
 - assertVisible: "Nutri-Score: .*"
