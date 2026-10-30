@@ -1,0 +1,16 @@
+appId: org.openfoodfacts.scanner
+name: Unknown barcode, open the add product page
+---
+# Stops on the first add product page: nothing is saved to the database.
+- runFlow: onboarding.yaml
+- tapOn: "Search for a product"
+- tapOn: "Search"
+- inputText: "9990000000005"
+- pressKey: Enter
+- extendedWaitUntil:
+    visible: "New product found!"
+    timeout: 60000
+- tapOn: "Add this product"
+- extendedWaitUntil:
+    visible: "Select the type of this product"
+    timeout: 20000

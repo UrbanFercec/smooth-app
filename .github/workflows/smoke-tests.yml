@@ -5,7 +5,7 @@ on:
     inputs:
       flows:
         description: 'Flow file or folder to run'
-        default: '.maestro/'
+        default: '.maestro/release/'
         type: string
   push:
     branches:
@@ -113,10 +113,15 @@ jobs:
             ~/.android/adb*
           key: ${{ steps.avd-cache.outputs.cache-primary-key }}
 
+      - name: Check the unknown product barcode is still unknown
+        run: |
+          curl -sS "https://world.openfoodfacts.org/api/v2/product/9990000000005?fields=code" | grep -q '"status":0' \
+            || { echo "::error::9990000000005 now exists in the database (or the API is unreachable), pick another unknown barcode for add_unknown_product.yaml"; exit 1; }
+
       - name: Run smoke flows
         uses: reactivecircus/android-emulator-runner@v2.38.0
         env:
-          FLOWS: ${{ inputs.flows || '.maestro/' }}
+          FLOWS: ${{ inputs.flows || '.maestro/release/' }}
         with:
           api-level: 34
           arch: x86_64
